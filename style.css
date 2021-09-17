@@ -1,0 +1,36 @@
+body {
+	margin: 0;
+	padding: 0;
+	background-color: #2c3e50;
+	min-width: 300px;
+}
+section {
+    margin-top: 10px;
+  }
+  
+#board {
+    margin: auto;
+    margin-top: 10px;
+    width: 500px;
+    height: 500px;
+}
+.boardRow {
+    width: 100%;
+    border-bottom: 1px solid #2c3e50;
+    box-sizing: border-box;
+}
+  
+.boardCol {
+    height: 100%;
+    background-color: #34495e;
+    float: left;
+    border-radius: 3px;
+    border-left: 1px solid #2c3e50;
+    box-sizing: border-box;
+    cursor:pointer;
+}
+
+
+
+
+
