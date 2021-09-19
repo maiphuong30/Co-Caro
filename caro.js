@@ -12,6 +12,7 @@ function Loaded()
 			var div = '<div class="square" onClick="Click(id)"></div>';
 			row.item(y).innerHTML += '<div class="boardCol" style="width:'+100/size+'%">'+div+'</div>';
 			square.item(x+y*size).setAttribute("id",(x+y*size).toString());
+			square.item(x+y*size).setAttribute("player","-1");
 		}
 	}
 }
