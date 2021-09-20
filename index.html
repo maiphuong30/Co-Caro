@@ -9,7 +9,10 @@
     <link rel="stylesheet" href="style.css">
     <script src="caro.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="click.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="currentTurn.js"></script>
+    <script src="startGame.js"></script>
+    <script src="checkWin.js"></script>
 </head>
 <body onLoad="Loaded()">
     <section>
@@ -23,11 +26,19 @@
                     <div id="label1">CURENT PLAYER:</b></div>
                     <div id="imgPlayer"></div>
                     <select class="form-control" id="size" onchange="Loaded()">
-                        <option value="">Chọn...</option>
                         <option value="3">3x3</option>
                         <option value="9">9x9</option>
                         <option value="15" selected>15x15</option>
                     </select>
+                    <div class="btn-group btn-group-toggle mt-3" style="width:100%;" data-toggle="buttons">
+                        <label class="btn btn-outline-success active">
+                        <input type="radio" name="playerVS" value="player" autocomplete="off" checked>VS Player
+                        </label>
+                        <label class="btn btn-outline-success ">
+                        <input type="radio" name="playerVS" value="computer" autocomplete="off">VS Computer
+                        </label>
+                     </div>
+                    <input type="button" id="S-btn" class="form-control btn btn-success mt-3" value="Start Game" onClick="Start()">
                 </div>
             </div>
         </div>
