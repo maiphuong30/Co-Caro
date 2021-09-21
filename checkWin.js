@@ -9,7 +9,7 @@ function WinGame()
 	{
 		for (y = 0;y < size;y++)
 		{
-			if (Horizontal(x,y,Board) || Vertical(x,y,Board))
+			if (Horizontal(x,y,Board) || Vertical(x,y,Board) || Cross1(x,y,Board) || Cross2(x,y,Board))
 			{
 				var square = document.getElementsByClassName("square");
 				for(i = 0;i < l_win.length;i++)
@@ -70,6 +70,62 @@ function Vertical(x,y,Board)
 		{
 			count++;
 			l_win.push(x+i*size);
+		}
+	}
+	if (count >= goal) 
+	{
+		return true;
+	}
+	return false;
+}
+// [/////]
+function Cross1(x,y,Board)
+{
+	l_win = [];
+	var size = document.getElementById("size").value;
+	if(size == 3) goal = 3;
+	if (x > size-goal || y < goal-1) return false;
+	var count = 0;
+	
+	var player = Board[x + y*size];
+	if (player == 0) return false;
+	// check [/////]
+	for (i = 0; i <= minab(size-x-1,y);i++)
+	{
+		var p = Board[(x+i)+(y-i)*size];
+		if (p == player && p != 0)
+		{
+			count++;
+			l_win.push((x+i)+(y-i)*size);
+		}
+	}
+	console.log("------------")
+    console.log(l_win);
+	console.log("count:",count)
+	if (count >= goal) 
+	{
+		return true;
+	}
+	return false;
+}
+// [\\\\\]
+function Cross2(x,y,Board)
+{
+	l_win = [];
+	var size = document.getElementById("size").value;
+	if(size == 3) goal = 3;
+	if (x > size-goal || y > size-goal) return false;
+	var count = 0;
+	var player = Board[x + y*size];
+	if (player == 0) return false;
+	// check [\\\\\]
+	for (i = 0; i < minab(size-x-1,size-y-1);i++)
+	{
+		var p = Board[(x+i)+(y+i)*size];
+		if (p == player && p != 0)
+		{
+			count++;
+			l_win.push((x+i)+(y+i)*size);
 		}
 	}
 	if (count >= goal) 
