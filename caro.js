@@ -12,7 +12,7 @@ function Loaded()
 			var div = '<div class="square" onClick="Click(id)" onMouseOver="MouseOver(id)" onMouseOut="MouseOut(id)"></div>';
 			row.item(y).innerHTML += '<div class="boardCol" style="width:'+100/size+'%">'+div+'</div>';
 			square.item(x+y*size).setAttribute("id",(x+y*size).toString());
-			square.item(x+y*size).setAttribute("player","-1");
+			square.item(x+y*size).setAttribute("player","0");
 		}
 	}
 }
