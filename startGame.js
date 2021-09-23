@@ -22,8 +22,14 @@ function GetBoard()
 	var mapBoard = [];
     var size = document.getElementById("size").value;
 	var sqr = document.getElementsByClassName("square");
-	for (i = 0; i < size*size;i++)
-		mapBoard.push(parseInt(sqr.item(i).getAttribute("player")));
+	//for (i = 0; i < size*size;i++)
+    for (x = 0;x < size;x++){
+        mapBoard[x] = [];
+		for (y = 0;y < size;y++)
+		{
+		mapBoard[x][y]=parseInt(sqr.item(x+y*size).getAttribute("player"));
+        }
+    }
 	//console.log(mapBoard);
 	return mapBoard;
 }

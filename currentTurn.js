@@ -11,6 +11,7 @@ function Click(id)
 	if (square.item(pos).getAttribute("player") != "0") return;
 	square.item(pos).style.backgroundImage = path;
 	square.item(pos).setAttribute("player",currValue.toString());
+	var winState = WinGame();
 	//Đổi lượt player
 	if (!AI)
 	{
@@ -20,10 +21,17 @@ function Click(id)
 	if (currValue == -1) iplayer = "url('Images/O.png')";
 	var imgp = document.getElementById("imgPlayer");
 	imgp.style.backgroundImage = iplayer;
+	}else
+	{
+		if (!winState)
+		{
+			AIMode();
+			winState = WinGame();
+			//pwin = 1;
+		}
 	}
-	var win = WinGame();
 	// Win: end game
-	if (win)
+	if (winState)
 	{
 		var mess = 'Player with "O" win';
 		//if (pwin == 0) mess = 'Player with "O" win';
