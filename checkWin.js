@@ -31,7 +31,7 @@ function Horizontal(x,y,Board)
 	if(size == 3) goal = 3;
 	var count = 0;
 	var player = Board[x][y];
-	console.log(player)
+	//console.log(player)
 	if (player == 0) return false;
 	
 	//[Xiiii]
