@@ -42,7 +42,7 @@ function Horizontal(x,y,Board)
 		{
 			count++;
 			l_win.push(i+y*size);
-		}else{ if (p != 0) break;};
+		}else break;
 	}
 	/*console.log("------------")
     console.log(l_win);
@@ -71,7 +71,7 @@ function Vertical(x,y,Board)
 		{
 			count++;
 			l_win.push(x+i*size);
-		}else{ if (p != 0) break;};
+		}else break;
 	}
 	if (count >= goal) 
 	{
@@ -98,7 +98,7 @@ function Cross1(x,y,Board)
 		{
 			count++;
 			l_win.push((x+i)+(y-i)*size);
-		}else{ if (p != 0) break;};
+		}else break;
 	}
 	/*console.log("------------")
     console.log(l_win);
@@ -127,7 +127,7 @@ function Cross2(x,y,Board)
 		{
 			count++;
 			l_win.push((x+i)+(y+i)*size);
-		}else{ if (p != 0) break;};
+		}else break;
 	}
 	if (count >= goal) 
 	{

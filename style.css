@@ -54,3 +54,30 @@ section {
 	background-image:url('./Images/X.png');
 	background-repeat:round;
 }
+label{
+    margin: 0;
+    color:snow;
+}
+label > input[type="radio"] {
+    display: none;
+  }
+  label > input[type="radio"] + *::before {
+    content: "";
+    display: inline-block;
+    width: 1rem;
+    height: 1rem;
+    margin-right: 0.3rem;
+    border-radius: 50%;
+    border-style: inset;
+    border-width: 0.1rem;
+    border-color: gray;
+  }
+  label > input[type="radio"]:checked + *::before {
+    background: radial-gradient(green 0%, green 40%, transparent 50%, transparent);
+    border-color: green;
+  }
+  
+  label > input[type="radio"] + * {
+    display: inline-block;
+    padding: 0.5rem 1rem 0rem;
+  }

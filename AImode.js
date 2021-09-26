@@ -14,8 +14,9 @@ function AIMode()
             //Ô trống
 			if (Boardtmp[x][y] == 0)
 			{
-				Boardtmp[x][y] = -1;
-				var H = Point(x,y,Boardtmp,-1);
+				Boardtmp[x][y] = AIplayFor;
+				console.log(AIplayFor);
+				var H = Point(x,y,Boardtmp,1);
 				Boardtmp[x][y] =  0;
 				if (H > vmax)
 				{
@@ -27,9 +28,11 @@ function AIMode()
 	}
 	try
 	{
+		var iplayer = "url('Images/X.png')";
+		if (AIplayFor == -1) iplayer = "url('Images/O.png')";
 		var sqr = document.getElementsByClassName("square");
-		sqr.item(px + py*size).setAttribute("player","-1");
-		sqr.item(px + py*size).style.backgroundImage = "url('Images/O.png')";
+		sqr.item(px + py*size).setAttribute("player",AIplayFor);
+		sqr.item(px + py*size).style.backgroundImage = iplayer;
 		//l_played.push(px+py*size);
 	}
 	catch(e) {alert(e.message)}
@@ -93,7 +96,7 @@ function GetMarkVer(x,y,TBoard,player)
 		else {if (TBoard[x][i] != 0) countEnemy++;break;}
 	}
 	// Bị chặn bởi giới hạn của board
-	if ((x == 0 || x == size-1) && count < 4) countEnemy++;
+	if ((y == 0 || y == size-1) && count < 4) countEnemy++;
 	//[2,0], [2,1], [2,2], [2,3], [0,0], [1,0]
 	if((countEnemy==2 && count<4)||count==0) return 0;
 	//[0,4], [1,4], [2,4]
