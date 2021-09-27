@@ -1,6 +1,7 @@
 var InGame = false;
 var AI = false;
 var AIplayFor =0; //1:X , -1:O
+var timereturn = false;
 function Loaded()
 {
 	var size = document.getElementById("size").value;
@@ -38,8 +39,12 @@ function Start()
                             AIplayFor=1;
                             currValue=1;
                             Click(x+x*size);
+                            TimeReturn();
                         }else{
+                            Loaded();
+                            InGame = true;
                             AIplayFor=-1;
+                            TimeReturn();
                         }
                     }
             }
@@ -47,14 +52,16 @@ function Start()
                 AI = true;
                 console.log(AI);
             }
+        }else{
+            Loaded();
+            InGame = true;
+            TimeReturn();
         }
     }
     var childNodes = document.getElementById("controls").getElementsByTagName('*');
     for (var node of childNodes) {
         node.disabled = true;
     }
-    Loaded();
-    InGame = true;
 }
 function GetBoard()
 {
@@ -70,4 +77,30 @@ function GetBoard()
     }
 	//console.log(mapBoard);
 	return mapBoard;
+}
+function TimeReturn()
+{
+	var chb = document.getElementById("chbtime");
+	if (chb.checked) timereturn = true;
+	else timereturn = false;
+	if (timereturn) LoadProgress();
+}
+function LoadProgress()
+{
+	if (!timereturn || !InGame) return;
+	setTimeout(
+	function()
+	{
+		var pgr = document.getElementById("pgrTime");
+		pgr.value--;
+		if (pgr.value > 0)
+		LoadProgress();
+		else
+		{
+			var mess = 'Player with "X" win';
+			if (currValue == 1) mess = 'Player with "O" win';
+			alert(mess);
+			InGame = false;
+		}
+	},100);
 }

@@ -37,6 +37,10 @@ function Click(id)
 		//if (pwin == 0) mess = 'Player with "O" win';
 		alert(mess);
 		InGame = false;
+	}else //Chưa có người thắng, set lại thời gian
+	{
+		var pgr = document.getElementById("pgrTime");
+		pgr.value = pgr.getAttribute("max");
 	}
 }
 function MouseOver(id)
