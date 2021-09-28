@@ -58,6 +58,26 @@
             </div>
         </div>
     </section>
+    <!-- Modal Cho Website -->
+<div id="myModal" class="modal">
+
+    <!-- Nội Dung Modal -->
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3 id="mess">
+                🎉😁Congratulation😃🎉</h3>
+            <span class="close">&times;</span>
+        </div>
+        <div class="modal-body">
+            <h4>The winner is:</h4>
+        <div id="imgWinner"></div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-success" onclick="reload()">Play again</button>
+        </div>
+    </div>
+  
+  </div>
     <script type="text/javascript">
         $(document).ready(function() {
         $(".choose").hide();
@@ -67,6 +87,22 @@
             $(".choose[data-period='" + test + "']").show();
         });
     });
+    $(document).ready(function () {
+    var modal = $('.modal');
+    var span = $('.close');
+    span.click(function () {
+        modal.hide();
+    });
+
+    $(window).on('click', function (e) {
+        if ($(e.target).is('.modal')) {
+        modal.hide();
+        }
+    });
+    });
+    function reload(){
+        location.reload()
+    }
     </script>
 </body>
 </html>

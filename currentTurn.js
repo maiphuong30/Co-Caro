@@ -12,6 +12,7 @@ function Click(id)
 	square.item(pos).style.backgroundImage = path;
 	square.item(pos).setAttribute("player",currValue.toString());
 	var winState = WinGame();
+	var whowin= currValue;
 	//Đổi lượt player
 	if (!AI)
 	{
@@ -27,16 +28,13 @@ function Click(id)
 		{
 			AIMode();
 			winState = WinGame();
-			//pwin = 1;
+			whowin = AIplayFor;
 		}
 	}
 	// Win: end game
 	if (winState)
 	{
-		var mess = 'Player with "O" win';
-		//if (pwin == 0) mess = 'Player with "O" win';
-		alert(mess);
-		InGame = false;
+		EndGame(whowin);
 	}else //Chưa có người thắng, set lại thời gian
 	{
 		var pgr = document.getElementById("pgrTime");

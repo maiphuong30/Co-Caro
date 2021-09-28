@@ -27,12 +27,11 @@ function Start()
     var x=Math.floor(size/2); 
     for (var i = 0; i < typeGame.length; i++){
         if (typeGame[i].checked === true){
-            alert(typeGame[i].value);
             if (typeGame[i].value=="computer") {  
                 var playFor = document.getElementsByName("StartWith");
                 for (var j = 0; j < playFor.length; j++){
                     if (playFor[j].checked === true){
-                        alert(playFor[j].value);
+                        //alert(playFor[j].value);
                         if (playFor[j].value=="O") {
                             Loaded();
                             InGame = true;
@@ -47,7 +46,7 @@ function Start()
                             TimeReturn();
                         }
                     }
-            }
+                }
 
                 AI = true;
                 console.log(AI);
@@ -97,10 +96,23 @@ function LoadProgress()
 		LoadProgress();
 		else
 		{
-			var mess = 'Player with "X" win';
-			if (currValue == 1) mess = 'Player with "O" win';
-			alert(mess);
-			InGame = false;
+            var whowin =-currValue;
+			EndGame(whowin);
 		}
 	},100);
 }
+function EndGame(whowin){
+	if(AI){
+		var mess = "You lost😂😂😂";
+		if (whowin != AIplayFor) mess = "🎉😁👏You Win👏😃🎉";
+		document.getElementById("mess").innerHTML = mess;
+	}
+	
+	var winner = "url('Images/X.png')";
+	if (whowin == -1) winner = "url('Images/O.png')";
+	var imgw = document.getElementById("imgWinner");
+	imgw.style.backgroundImage = winner;
+	var modal = document.getElementById("myModal");
+	modal.style.display = "block";
+	InGame = false;
+} 
