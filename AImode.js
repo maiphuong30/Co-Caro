@@ -42,20 +42,20 @@ function Point(x,y,Tboard,player)
 	var val = Tboard[x][y];
 	if (val == 0) return 0;
 	var enemy = -player;
-	var result = Attack[GetMarkHor(x,y,Tboard,player)] + Attack[GetMarkVer(x,y,Tboard,player)]
-	+Attack[GetMarkCross1(x,y,Tboard,player)]+Attack[GetMarkCross2(x,y,Tboard,player)];
+	var result = Attack[GetHorPoint(x,y,Tboard,player)] + Attack[GetVerPoint(x,y,Tboard,player)]
+	+Attack[GetCross1Point(x,y,Tboard,player)]+Attack[GetCross2Point(x,y,Tboard,player)];
 	console.log('-----------------------------------------');
-	result += Defense[GetMarkHor(x,y,Tboard,enemy)]+Defense[GetMarkVer(x,y,Tboard,enemy)]
-	+ Defense[GetMarkCross1(x,y,Tboard,enemy)]+Defense[GetMarkCross2(x,y,Tboard,enemy)];
-	if(Defense[GetMarkHor(x,y,Tboard,enemy)]>0|| Attack[GetMarkHor(x,y,Tboard,player)]>0){
-	console.log('x,y-Defense score-Attack score',x,y,Defense[GetMarkHor(x,y,Tboard,enemy)]
-	,Attack[GetMarkHor(x,y,Tboard,player)]);
+	result += Defense[GetHorPoint(x,y,Tboard,enemy)]+Defense[GetVerPoint(x,y,Tboard,enemy)]
+	+ Defense[GetCross1Point(x,y,Tboard,enemy)]+Defense[GetCross2Point(x,y,Tboard,enemy)];
+	if(Defense[GetHorPoint(x,y,Tboard,enemy)]>0|| Attack[GetHorPoint(x,y,Tboard,player)]>0){
+	console.log('x,y-Defense score-Attack score',x,y,Defense[GetHorPoint(x,y,Tboard,enemy)]
+	,Attack[GetHorPoint(x,y,Tboard,player)]);
 	}
 	return result;
 }
 
 //Kiểm tra hàng ngang
-function GetMarkHor(x,y,TBoard,playerValue)
+function GetHorPoint(x,y,TBoard,playerValue)
 {
     var size = document.getElementById("size").value;
 	// if(playerValue=1) var 
@@ -81,7 +81,7 @@ function GetMarkHor(x,y,TBoard,playerValue)
 	// [1,1], [0,1], [1,2], [0,2], [1,3], [0,3] 
 	else return count*2 - countEnemy;
 }
-function GetMarkVer(x,y,TBoard,player)
+function GetVerPoint(x,y,TBoard,player)
 {
 	var size = document.getElementById("size").value;
 	var count = 0,countEnemy = 0;
@@ -104,7 +104,7 @@ function GetMarkVer(x,y,TBoard,player)
 	// [1,1], [0,1], [1,2], [0,2], [1,3], [0,3] 
 	else return count*2 - countEnemy;
 }
-function GetMarkCross1(x,y,TBoard,player)
+function GetCross1Point(x,y,TBoard,player)
 {
 	var size = document.getElementById("size").value;
 	var count = 0,countEnemy = 0;
@@ -128,7 +128,7 @@ function GetMarkCross1(x,y,TBoard,player)
 	else return count*2 - countEnemy;
 }
 
-function GetMarkCross2(x,y,TBoard,player)
+function GetCross2Point(x,y,TBoard,player)
 {
 	var size = document.getElementById("size").value;
 	var count = 0,countEnemy = 0;

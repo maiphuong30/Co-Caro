@@ -17,5 +17,5 @@ var Defense = [
     200,//[OO]
     300,//[XOO]
     700,//[OOO]
-    9999//[OOOO_],[OO_OO],[XOOOO] chặn địch thắng
+    8888//[OOOO_],[OO_OO],[XOOOO] chặn địch thắng
 ];

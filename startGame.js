@@ -102,17 +102,16 @@ function LoadProgress()
 	},100);
 }
 function EndGame(whowin){
+	var mess = "🎉😁👏Congratulation👏😃🎉";
 	if(AI){
-		var mess = "You lost😂😂😂";
+		var mess = "😂😂😂You lost😂😂😂";
 		if (whowin != AIplayFor) mess = "🎉😁👏You Win👏😃🎉";
-		document.getElementById("mess").innerHTML = mess;
-	}
-	
-	var winner = "url('Images/X.png')";
-	if (whowin == -1) winner = "url('Images/O.png')";
-	var imgw = document.getElementById("imgWinner");
-	imgw.style.backgroundImage = winner;
-	var modal = document.getElementById("myModal");
-	modal.style.display = "block";
+	}else{
+		var winner = "url('Images/X.png')";
+		if (whowin == -1) winner = "url('Images/O.png')";
+		var imgw = document.getElementById("imgWinner");
+		imgw.style.backgroundImage = winner;
+	}	
+	document.getElementById("message").innerHTML = mess;
 	InGame = false;
 } 

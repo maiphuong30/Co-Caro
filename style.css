@@ -10,7 +10,7 @@ section {
   
 #board {
     margin: auto;
-    margin-top: 10px;
+    margin-top: 5px;
     width: 500px;
     height: 500px;
 }
@@ -116,33 +116,28 @@ input[type=checkbox] {
     margin-right: 10px;
     cursor: pointer;
 }
-.modal {
-    display: none;
-    position: fixed; 
-    z-index: 1; 
-    padding-top: 100px;
-    left: 0;
-    top: 0;
-    width: 100%; 
-    height: 100%; 
-    background-color: rgb(0,0,0); 
-    background-color: rgba(0,0,0,0.4); 
-}
-.modal-content {
-    background-color: #fefefe;
-    margin: auto;
-    padding: 10px;
-    border: 1px solid #888;
-    width: 35%;
-    box-shadow: 0 1px 1px rgba(0,0,0,0.12), 
-                0 2px 2px rgba(0,0,0,0.12), 
-                0 4px 4px rgba(0,0,0,0.12), 
-                0 8px 8px rgba(0,0,0,0.12),
-                0 16px 16px rgba(0,0,0,0.12);
-    border-radius: 25px;
-}
 #imgWinner
 {
-	width:120px;
-	height:120px;
+	width:20px;
+	height:20px;
 }
+.messages {
+    width: 500px;
+    height: 50px;
+    margin: auto;
+}
+.messagesContainer,.imgWinner {
+    position: relative;
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+  }
+  .newMainText {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 50;
+    display: table;
+    text-align: center;
+    color: #2ecc71;;
+  }
