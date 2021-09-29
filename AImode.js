@@ -46,13 +46,13 @@ function Point(x,y,Tboard,player)
 	var enemy = -player;
 	var result = Attack[GetHorPoint(x,y,Tboard,player)] + Attack[GetVerPoint(x,y,Tboard,player)]
 	+Attack[GetCross1Point(x,y,Tboard,player)]+Attack[GetCross2Point(x,y,Tboard,player)];
-	console.log('-----------------------------------------');
+	
 	result += Defense[GetHorPoint(x,y,Tboard,enemy)]+Defense[GetVerPoint(x,y,Tboard,enemy)]
 	+ Defense[GetCross1Point(x,y,Tboard,enemy)]+Defense[GetCross2Point(x,y,Tboard,enemy)];
-	if(Defense[GetHorPoint(x,y,Tboard,enemy)]>0|| Attack[GetHorPoint(x,y,Tboard,player)]>0){
+	/*if(Defense[GetHorPoint(x,y,Tboard,enemy)]>0|| Attack[GetHorPoint(x,y,Tboard,player)]>0){
 	console.log('x,y-Defense score-Attack score',x,y,Defense[GetHorPoint(x,y,Tboard,enemy)]
 	,Attack[GetHorPoint(x,y,Tboard,player)]);
-	}
+	}*/
 	return result;
 }
 
@@ -73,18 +73,18 @@ function GetHorPoint(x,y,TBoard,playerValue)
 		else {if (TBoard[i][y] != 0) countEnemy++;break;}
 	}
 	// Bị chặn bởi giới hạn của board
-	if ((x == 0 || x == size-1) && count < 4) countEnemy++;
+	if ((x == 0 || x == size-1) && count < goal-1) countEnemy++;
 	//[2,0], [2,1], [2,2], [2,3], [0,0], [1,0]
-	if((countEnemy==2 && count<4)||count==0) return 0;
+	if((countEnemy==2 && count<goal-1)||count==0) return 0;
 	//[0,4], [1,4], [2,4]
-	else if(count>3) return 7;
+	else if(count>=goal-1) return 7;
 	// [1,1], [0,1], [1,2], [0,2], [1,3], [0,3] 
 	else return count*2 - countEnemy;
 }
 function GetVerPoint(x,y,TBoard,player)
 {
 	var count = 0,countEnemy = 0;
-	for (i = y-1;i > 0;i--)
+	for (i = y-1;i >= 0;i--)
 	{
 		if (TBoard[x][i] == player) count++;
 		else {if (TBoard[x][i] != 0) countEnemy++;break;}
@@ -95,11 +95,11 @@ function GetVerPoint(x,y,TBoard,player)
 		else {if (TBoard[x][i] != 0) countEnemy++;break;}
 	}
 	// Bị chặn bởi giới hạn của board
-	if ((y == 0 || y == size-1) && count < 4) countEnemy++;
+	if ((y == 0 || y == size-1) && count < goal-1) countEnemy++;
 	//[2,0], [2,1], [2,2], [2,3], [0,0], [1,0]
-	if((countEnemy==2 && count<4)||count==0) return 0;
+	if((countEnemy==2 && count<goal-1)||count==0) return 0;
 	//[0,4], [1,4], [2,4]
-	else if(count>3) return 7;
+	else if(count>=goal-1) return 7;
 	// [1,1], [0,1], [1,2], [0,2], [1,3], [0,3] 
 	else return count*2 - countEnemy;
 }
@@ -117,11 +117,11 @@ function GetCross1Point(x,y,TBoard,player)
 		else {if (TBoard[(x-i)][(y+i)] != 0) countEnemy++;break;}
 	}
 	// Bị chặn bởi giới hạn của board
-	if ((x == 0 || x == size-1 || y == 0 || y == size-1) && count < 4) countEnemy++;
+	if ((x == 0 || x == size-1 || y == 0 || y == size-1) && count < goal-1) countEnemy++;
 	//[2,0], [2,1], [2,2], [2,3], [0,0], [1,0]
-	if((countEnemy==2 && count<4)||count==0) return 0;
+	if((countEnemy==2 && count<goal-1)||count==0) return 0;
 	//[0,4], [1,4], [2,4]
-	else if(count>3) return 7;
+	else if(count>=goal-1) return 7;
 	// [1,1], [0,1], [1,2], [0,2], [1,3], [0,3] 
 	else return count*2 - countEnemy;
 }
@@ -140,11 +140,11 @@ function GetCross2Point(x,y,TBoard,player)
 		else {if (TBoard[(x+i)][(y+i)] != 0) countEnemy++;break;}
 	}
 	// Bị chặn bởi giới hạn của board
-	if ((x == 0 || x == size-1 || y == 0 || y == size-1) && count < 4) countEnemy++;
+	if ((x == 0 || x == size-1 || y == 0 || y == size-1) && count < goal-1) countEnemy++;
 	//[2,0], [2,1], [2,2], [2,3], [0,0], [1,0]
-	if((countEnemy==2 && count<4)||count==0) return 0;
+	if((countEnemy==2 && count<goal-1)||count==0) return 0;
 	//[0,4], [1,4], [2,4]
-	else if(count>3) return 7;
+	else if(count>=goal-1) return 7;
 	// [1,1], [0,1], [1,2], [0,2], [1,3], [0,3] 
 	else return count*2 - countEnemy;
 }

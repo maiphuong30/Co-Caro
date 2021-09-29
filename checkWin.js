@@ -26,12 +26,9 @@ function WinGame()
 function Horizontal(x,y,Board)
 {
 	l_win = [];
-	if(size == 3) goal = 3;
 	var count = 0;
 	var player = Board[x][y];
-	//console.log(player)
 	if (player == 0) return false;
-	
 	//[Xiiii]
 	for (i = x; i < size;i++)
 	{
@@ -57,7 +54,6 @@ function Vertical(x,y,Board)
 {
 	l_win = [];
 	var count = 0;
-	if(size == 3) goal = 3;
 	var player = Board[x][y];
 	if (player == 0) return false;
 	
@@ -80,7 +76,6 @@ function Vertical(x,y,Board)
 function Cross1(x,y,Board)
 {
 	l_win = [];
-	if(size == 3) goal = 3;
 	if (x > size-goal || y < goal-1) return false;
 	var count = 0;
 	
@@ -109,7 +104,6 @@ function Cross1(x,y,Board)
 function Cross2(x,y,Board)
 {
 	l_win = [];
-	if(size == 3) goal = 3;
 	if (x > size-goal || y > size-goal) return false;
 	var count = 0;
 	var player = Board[x][y];

@@ -33,6 +33,7 @@ section {
     margin: auto;
     padding: 10px;
     font-family: "Roboto", sans-serif;
+    color: whitesmoke;
 }
 .square
 {
@@ -74,13 +75,13 @@ label > input[type="radio"] {
     border-style: inset;
     border-width: 0.1rem;
     border-color: gray;
-  }
-  label > input[type="radio"]:checked + *::before {
+}
+label > input[type="radio"]:checked + *::before {
     background: radial-gradient(green 0%, green 40%, transparent 50%, transparent);
     border-color: green;
-  }
+}
   
-  label > input[type="radio"] + * {
+label > input[type="radio"] + * {
     display: inline-block;
     padding: 0.5rem 1rem 0rem;
 }

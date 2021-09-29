@@ -3,6 +3,7 @@ var AI = false;
 var AIplayFor =0; //1:X , -1:O
 var timereturn = false;
 var size=15;
+var goal = 5;
 function Loaded()
 {
 	size = document.getElementById("size").value;
@@ -24,6 +25,7 @@ function Loaded()
 function Start()
 {
     size = document.getElementById("size").value;
+	if(size == 3) goal = 3;
     var typeGame = document.getElementsByName("playerVS");
     var x=Math.floor(size/2); 
     for (var i = 0; i < typeGame.length; i++){
@@ -66,7 +68,6 @@ function Start()
 function GetBoard()
 {
 	var mapBoard = [];
-    //var size = document.getElementById("size").value;
 	var sqr = document.getElementsByClassName("square");
     for (x = 0;x < size;x++){
         mapBoard[x] = [];
