@@ -2,9 +2,10 @@ var InGame = false;
 var AI = false;
 var AIplayFor =0; //1:X , -1:O
 var timereturn = false;
+var size=15;
 function Loaded()
 {
-	var size = document.getElementById("size").value;
+	size = document.getElementById("size").value;
 	var table = document.getElementById("board");
 	var	row = document.getElementsByClassName("boardRow");
 	var square = document.getElementsByClassName("square");
@@ -22,7 +23,7 @@ function Loaded()
 }
 function Start()
 {
-    var size = document.getElementById("size").value;
+    size = document.getElementById("size").value;
     var typeGame = document.getElementsByName("playerVS");
     var x=Math.floor(size/2); 
     for (var i = 0; i < typeGame.length; i++){
@@ -65,7 +66,7 @@ function Start()
 function GetBoard()
 {
 	var mapBoard = [];
-    var size = document.getElementById("size").value;
+    //var size = document.getElementById("size").value;
 	var sqr = document.getElementsByClassName("square");
     for (x = 0;x < size;x++){
         mapBoard[x] = [];
@@ -103,15 +104,19 @@ function LoadProgress()
 }
 function EndGame(whowin){
 	var mess = "🎉😁👏Congratulation👏😃🎉";
-	if(AI){
-		var mess = "😂😂😂You lost😂😂😂";
-		if (whowin != AIplayFor) mess = "🎉😁👏You Win👏😃🎉";
-	}else{
-		var winner = "url('Images/X.png')";
-		if (whowin == -1) winner = "url('Images/O.png')";
-		var imgw = document.getElementById("imgWinner");
-		imgw.style.backgroundImage = winner;
-	}	
+	if(whowin==0) mess="👏😁🤝Draw🤝😃👏";
+	else {
+		if(AI){
+			var mess = "😂😂😂You lost😂😂😂";
+			if (whowin != AIplayFor) mess = "🎉😁👏You Win👏😃🎉";
+			
+		}else{
+			var winner = "url('Images/X.png')";
+			if (whowin == -1) winner = "url('Images/O.png')";
+			var imgw = document.getElementById("imgWinner");
+			imgw.style.backgroundImage = winner;
+		}
+	}
 	document.getElementById("message").innerHTML = mess;
 	InGame = false;
 } 

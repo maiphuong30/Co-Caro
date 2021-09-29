@@ -1,12 +1,14 @@
-
 //Player value X = 1, O = -1
 function AIMode()
 {
 	if (!InGame) return;
-    var size = document.getElementById("size").value;
 	var vmax = -Infinity;
 	var px = py = -1;
 	var Boardtmp = GetBoard();
+	if(fullBoard()==0){
+		EndGame(0);
+		return;
+	}
 	for (y = 0; y < size; y++)
 	{
 		for (x = 0; x < size; x++)
@@ -57,8 +59,6 @@ function Point(x,y,Tboard,player)
 //Kiểm tra hàng ngang
 function GetHorPoint(x,y,TBoard,playerValue)
 {
-    var size = document.getElementById("size").value;
-	// if(playerValue=1) var 
 	var count = 0,countEnemy = 0;
     //Kiêm tra bên trái
 	for (i = x-1;i >= 0;i--)
@@ -83,7 +83,6 @@ function GetHorPoint(x,y,TBoard,playerValue)
 }
 function GetVerPoint(x,y,TBoard,player)
 {
-	var size = document.getElementById("size").value;
 	var count = 0,countEnemy = 0;
 	for (i = y-1;i > 0;i--)
 	{
@@ -106,7 +105,6 @@ function GetVerPoint(x,y,TBoard,player)
 }
 function GetCross1Point(x,y,TBoard,player)
 {
-	var size = document.getElementById("size").value;
 	var count = 0,countEnemy = 0;
 	for (i = 1;i < minab(size-x,y+1);i++)
 	{
@@ -130,7 +128,6 @@ function GetCross1Point(x,y,TBoard,player)
 
 function GetCross2Point(x,y,TBoard,player)
 {
-	var size = document.getElementById("size").value;
 	var count = 0,countEnemy = 0;
 	for (i = 1;i < minab(x+1,y+1);i++)
 	{

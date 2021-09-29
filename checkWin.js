@@ -2,7 +2,6 @@ var l_win = [];
 var goal = 5;
 function WinGame()
 {
-    var size = document.getElementById("size").value;
 	var winState = false;
 	var Board = GetBoard();
 	for (x = 0;x < size;x++)
@@ -27,7 +26,6 @@ function WinGame()
 function Horizontal(x,y,Board)
 {
 	l_win = [];
-    var size = document.getElementById("size").value;
 	if(size == 3) goal = 3;
 	var count = 0;
 	var player = Board[x][y];
@@ -59,7 +57,6 @@ function Vertical(x,y,Board)
 {
 	l_win = [];
 	var count = 0;
-	var size = document.getElementById("size").value;
 	if(size == 3) goal = 3;
 	var player = Board[x][y];
 	if (player == 0) return false;
@@ -83,7 +80,6 @@ function Vertical(x,y,Board)
 function Cross1(x,y,Board)
 {
 	l_win = [];
-	var size = document.getElementById("size").value;
 	if(size == 3) goal = 3;
 	if (x > size-goal || y < goal-1) return false;
 	var count = 0;
@@ -113,14 +109,13 @@ function Cross1(x,y,Board)
 function Cross2(x,y,Board)
 {
 	l_win = [];
-	var size = document.getElementById("size").value;
 	if(size == 3) goal = 3;
 	if (x > size-goal || y > size-goal) return false;
 	var count = 0;
 	var player = Board[x][y];
 	if (player == 0) return false;
 	// check [\\\\\]
-	for (i = 0; i < minab(size-x-1,size-y-1);i++)
+	for (i = 0; i <= minab(size-x-1,size-y-1);i++)
 	{
 		var p = Board[(x+i)][(y+i)];
 		if (p == player && p != 0)
@@ -134,6 +129,20 @@ function Cross2(x,y,Board)
 		return true;
 	}
 	return false;
+}
+function fullBoard(){
+	var Board = GetBoard();
+	var empty=0;
+	for (x = 0;x < size;x++){
+		for (y = 0;y < size;y++){
+			var p = Board[x][y];
+			if (p == 0){
+				empty++;
+				break;
+			}
+		}
+	}
+	return empty;
 }
 function minab(a,b)
 {

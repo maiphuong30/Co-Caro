@@ -31,6 +31,9 @@ function Click(id)
 			whowin = AIplayFor;
 		}
 	}
+	if(fullBoard()==0){
+		EndGame(0);
+	}
 	// Win: end game
 	if (winState)
 	{
