@@ -5,6 +5,7 @@ function AIMode()
 	var vmax = -Infinity;
 	var px = py = -1;
 	var Boardtmp = GetBoard();
+	var goodMoves=[];
 	if(fullBoard()==0){
 		EndGame(0);
 		return;
@@ -17,17 +18,25 @@ function AIMode()
 			if (Boardtmp[x][y] == 0)
 			{
 				Boardtmp[x][y] = AIplayFor;
-				console.log(AIplayFor);
-				var H = Point(x,y,Boardtmp,1);
+				//console.log(AIplayFor);
+				var H = Point(x,y,Boardtmp,AIplayFor);
 				Boardtmp[x][y] =  0;
 				if (H > vmax)
 				{
-					px = x;py = y;
+					goodMoves=[];
+					goodMoves[goodMoves.length] = [parseInt(x), parseInt(y)];
+					vmax = H;
+				}
+				else if (H == vmax)
+				{
+					goodMoves[goodMoves.length] = [parseInt(x), parseInt(y)];
 					vmax = H;
 				}
 			}
 		}
 	}
+	px = goodMoves[Math.floor(Math.random() * goodMoves.length)][0];
+	py = goodMoves[Math.floor(Math.random() * goodMoves.length)][1];
 	try
 	{
 		var iplayer = "url('Images/X.png')";
@@ -35,7 +44,6 @@ function AIMode()
 		var sqr = document.getElementsByClassName("square");
 		sqr.item(px + py*size).setAttribute("player",AIplayFor);
 		sqr.item(px + py*size).style.backgroundImage = iplayer;
-		//l_played.push(px+py*size);
 	}
 	catch(e) {alert(e.message)}
 }

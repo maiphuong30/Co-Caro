@@ -39,9 +39,10 @@ section {
 {
 	width:100%;
 	font-size:9px;
-	background-repeat:round;
+	background-repeat:no-repeat;
 	overflow:hidden;
 	opacity:0.8;
+    background-size: cover;
 }
 .row{
     margin: 0;
