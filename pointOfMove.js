@@ -1,21 +1,21 @@
 var Attack = [
     0,
-    10,//[OXX]
-    50,//[XX]
-    100,//[OXXX]
-    400,//[XXX]
-    500,//[OXXXX] địch vẫn chặn được
-    1000,//[XXXX] có 4 dấu không bị chặn, thêm một nước thắng
+    100,//[OXX]
+    200,//[XX]
+    400,//[OXXX]
+    700,//[XX]
+    850,//[OXXXX] địch vẫn chặn được
+    1600,//[XXXX] có 4 dấu không bị chặn, thêm một nước thắng
     10000//[OXXXXXO],[OXXXXX] ,[XXXXX] nước cuối để thắng
 ];
 
 var Defense = [
     0,
-    5,//[XO]
-    25,//[O]
-    80,//[XOO]
-    200,//[OO]
+    50,//[XO]
+    150,//[O]
     300,//[XOO]
-    700,//[OOO]
-    8888//[OOOO_],[OO_OO],[XOOOO] chặn địch thắng
+    500,//[OO]
+    600,//[XOO]
+    1500,//[OOO]
+    8000//[OOOO_],[OO_OO],[XOOOO] chặn địch thắng
 ];

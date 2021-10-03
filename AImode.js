@@ -35,8 +35,9 @@ function AIMode()
 			}
 		}
 	}
-	px = goodMoves[Math.floor(Math.random() * goodMoves.length)][0];
-	py = goodMoves[Math.floor(Math.random() * goodMoves.length)][1];
+	var pos = Math.floor(Math.random() * goodMoves.length);
+	px = goodMoves[pos][0];
+	py = goodMoves[pos][1];
 	try
 	{
 		var iplayer = "url('Images/X.png')";
@@ -57,10 +58,9 @@ function Point(x,y,Tboard,player)
 	
 	result += Defense[GetHorPoint(x,y,Tboard,enemy)]+Defense[GetVerPoint(x,y,Tboard,enemy)]
 	+ Defense[GetCross1Point(x,y,Tboard,enemy)]+Defense[GetCross2Point(x,y,Tboard,enemy)];
-	/*if(Defense[GetHorPoint(x,y,Tboard,enemy)]>0|| Attack[GetHorPoint(x,y,Tboard,player)]>0){
-	console.log('x,y-Defense score-Attack score',x,y,Defense[GetHorPoint(x,y,Tboard,enemy)]
-	,Attack[GetHorPoint(x,y,Tboard,player)]);
-	}*/
+	if(result>0){
+	console.log('x,y,score',x,y,result);
+	}
 	return result;
 }
 
