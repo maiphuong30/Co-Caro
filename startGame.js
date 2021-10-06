@@ -4,6 +4,7 @@ var AIplayFor =0; //1:X , -1:O
 var timereturn = false;
 var size=15;
 var goal = 5;
+//hien thi bang
 function Loaded()
 {
 	size = document.getElementById("size").value;
@@ -22,6 +23,7 @@ function Loaded()
 		}
 	}
 }
+//chon che do chơi
 function Start()
 {
     size = document.getElementById("size").value;
@@ -65,12 +67,13 @@ function Start()
         node.disabled = true;
     }
 }
+//lay vi tri quan co trong bang
 function GetBoard()
 {
 	var mapBoard = [];
 	var sqr = document.getElementsByClassName("square");
     for (x = 0;x < size;x++){
-        mapBoard[x] = [];
+        mapBoard[x] = []; //map vao mảng
 		for (y = 0;y < size;y++)
 		{
 		mapBoard[x][y]=parseInt(sqr.item(x+y*size).getAttribute("player"));
@@ -79,6 +82,7 @@ function GetBoard()
 	//console.log(mapBoard);
 	return mapBoard;
 }
+//che do choi tinh gio
 function TimeReturn()
 {
 	var chb = document.getElementById("chbtime");
@@ -86,6 +90,7 @@ function TimeReturn()
 	else timereturn = false;
 	if (timereturn) LoadProgress();
 }
+//load gio cho che do tinh gio
 function LoadProgress()
 {
 	if (!timereturn || !InGame) return;
@@ -103,6 +108,7 @@ function LoadProgress()
 		}
 	},100);
 }
+//thong bao thăng thua
 function EndGame(whowin){
 	var mess = "🎉😁👏Congratulation👏😃🎉";
 	if(whowin==0) mess="👏😁🤝Draw🤝😃👏";

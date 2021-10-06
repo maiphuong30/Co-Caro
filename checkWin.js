@@ -22,6 +22,21 @@ function WinGame()
 	}
 	return winState;
 }
+//het o danh
+function fullBoard(){
+	var Board = GetBoard();
+	var empty=0;
+	for (x = 0;x < size;x++){
+		for (y = 0;y < size;y++){
+			var p = Board[x][y];
+			if (p == 0){
+				empty++;
+				break;
+			}
+		}
+	}
+	return empty;
+}
 // [XXXXX] [OOOOO]
 function Horizontal(x,y,Board)
 {
@@ -124,20 +139,7 @@ function Cross2(x,y,Board)
 	}
 	return false;
 }
-function fullBoard(){
-	var Board = GetBoard();
-	var empty=0;
-	for (x = 0;x < size;x++){
-		for (y = 0;y < size;y++){
-			var p = Board[x][y];
-			if (p == 0){
-				empty++;
-				break;
-			}
-		}
-	}
-	return empty;
-}
+
 function minab(a,b)
 {
 	if (a < b) return a;

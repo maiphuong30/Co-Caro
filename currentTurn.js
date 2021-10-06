@@ -1,6 +1,6 @@
 var currValue = 1; // Current Player value X = 1, O = -1
 var InGame = false;
-//Play Game
+//Doi luot choi
 function Click(id)
 {
 	if (!InGame) return;
@@ -44,13 +44,14 @@ function Click(id)
 		pgr.value = pgr.getAttribute("max");
 	}
 }
+//xac dinh vi tri muon danh
 function MouseOver(id)
 {
 	if (!InGame) return;
 	var square = document.getElementsByClassName("square");
 	var pos = parseInt(id);
 	square.item(pos).style.backgroundColor = "#2ecc71";
-}
+} 
 function MouseOut(id)
 {
 	if (!InGame) return;

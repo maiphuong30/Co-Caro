@@ -1,4 +1,5 @@
 //Player value X = 1, O = -1
+//Tinh diem cho o trông
 function AIMode()
 {
 	if (!InGame) return;
@@ -48,16 +49,17 @@ function AIMode()
 	}
 	catch(e) {alert(e.message)}
 }
+//tinh H
 function Point(x,y,Tboard,player)
 {
 	var val = Tboard[x][y];
 	if (val == 0) return 0;
 	var enemy = -player;
 	var result = Attack[GetHorPoint(x,y,Tboard,player)] + Attack[GetVerPoint(x,y,Tboard,player)]
-	+Attack[GetCross1Point(x,y,Tboard,player)]+Attack[GetCross2Point(x,y,Tboard,player)];
+	+Attack[GetCross1Point(x,y,Tboard,player)] + Attack[GetCross2Point(x,y,Tboard,player)];
 	
-	result += Defense[GetHorPoint(x,y,Tboard,enemy)]+Defense[GetVerPoint(x,y,Tboard,enemy)]
-	+ Defense[GetCross1Point(x,y,Tboard,enemy)]+Defense[GetCross2Point(x,y,Tboard,enemy)];
+	result += Defense[GetHorPoint(x,y,Tboard,enemy)] + Defense[GetVerPoint(x,y,Tboard,enemy)]
+	+ Defense[GetCross1Point(x,y,Tboard,enemy)] + Defense[GetCross2Point(x,y,Tboard,enemy)];
 	if(result>0){
 	console.log('x,y,score',x,y,result);
 	}
@@ -82,7 +84,7 @@ function GetHorPoint(x,y,TBoard,playerValue)
 	}
 	// Bị chặn bởi giới hạn của board
 	if ((x == 0 || x == size-1) && count < goal-1) countEnemy++;
-	//[2,0], [2,1], [2,2], [2,3], [0,0], [1,0]
+	//[2,0], [2,1], [2,2], [2,3], [0,0], [1,0] [dich,ta]
 	if((countEnemy==2 && count<goal-1)||count==0) return 0;
 	//[0,4], [1,4], [2,4]
 	else if(count>=goal-1) return 7;
